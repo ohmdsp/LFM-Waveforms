@@ -15,8 +15,8 @@ clear all;close all
 fc = 130e6;
 phi = 0;
 
-%fs = 105e6;
 fs = 105e6;
+%fs = 75e6;
 Ts = 1/fs;
 T = 42e-6;
 npoints = T*fs;

@@ -1,10 +1,9 @@
 clear
-% BW:35, Carrier:100, Fs:80
-% BW:32, Carrier:100, Fs:80
+
 Bandwidth = 32e+6;
 Carrier = 130e+6;
 
-m = 1:1:2;
+m = 1:1:200;
 fs = ((Carrier - (Bandwidth/2))./m) + ((Carrier + (Bandwidth/2))./(m+1));
 
 % Use this for spectrum centered at 1/4 the sampling rate
@@ -27,7 +26,6 @@ for k = 1:length(m)
 end
 
 % Number of sampling rates in our range of m that fall below 2*BW
-NumInvalid = 0;
 if (index == 1)
     error('Could not compute any valid bandpass sampling rates for this signal')
     return;
@@ -35,6 +33,4 @@ end
 
 [Fmin, MinIndex] = min(f);
 sort(f);
-
 plot_images(Bandwidth, Carrier, Fmin);
-%plot_images(Bandwidth, Carrier*1.05, Fmin);
