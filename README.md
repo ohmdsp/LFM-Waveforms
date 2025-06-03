@@ -1,2 +1,2 @@
 # LFM-Waveforms
-A set of Matlab scripts and functions for simulating and computing LFM waveforms.
+A set of Matlab scripts and functions for simulating LFM waveforms and determining optimal bandpass sampling approach.
