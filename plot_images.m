@@ -1,6 +1,6 @@
 function plot_images(bw, fc, fs)
 
-for k=-200:2:200,
+for k=-200:2:200
     SpectrumLocations(200+k+1) = ((k/2)*fs) - fc;
     SpectrumLocations(200+k+2) = ((k/2)*fs) + fc;
 end
@@ -13,18 +13,18 @@ NewSpectrumPos = zeros(1, length(faxis));
 s = (-bw/2):incr:(bw/2);
 OrigSpectrum = tripuls(s, bw);
 % Generate all the images from the original negative spectral image
-for k=1:2:length(SpectrumLocations),
+for k=1:2:length(SpectrumLocations)
     Location = SpectrumLocations(k) - (bw/2);
     index = floor((2*fc + Location)/incr) + 1;
-    if ((index > 0)&&(index <= (length(NewSpectrumNeg)-length(OrigSpectrum)))),
+    if ((index > 0)&&(index <= (length(NewSpectrumNeg)-length(OrigSpectrum))))
         NewSpectrumNeg(index:(index+length(OrigSpectrum))-1) = OrigSpectrum;
     end
 end
 % Generate all the images from the original positive spectral image
-for k=2:2:length(SpectrumLocations),
+for k=2:2:length(SpectrumLocations)
     Location = SpectrumLocations(k) - (bw/2);
     index = floor((2*fc + Location)/incr) + 1;
-    if ((index > 0)&&(index <= (length(NewSpectrumPos)-length(OrigSpectrum)))),
+    if ((index > 0)&&(index <= (length(NewSpectrumPos)-length(OrigSpectrum))))
         NewSpectrumPos(index:(index+length(OrigSpectrum))-1) = OrigSpectrum;
     end
 end
